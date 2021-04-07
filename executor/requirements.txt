@@ -1,0 +1,4 @@
+pandas==1.2.3
+pyarrow==3.0.*
+pylint==2.7.2
+pyspark==3.1.1
