@@ -1,10 +1,7 @@
 # docker_spark
 [![Build Status](https://dev.azure.com/MichalKubista/Spark%20Dockerfiles/_apis/build/status/kubistmi.docker_spark?branchName=master)](https://dev.azure.com/MichalKubista/Spark%20Dockerfiles/_build/latest?definitionId=5&branchName=master)
 
-A set of Spark dockerfiles:
-- executor can be used in `Visual Studio Code Remote - Containers`
-- driver can be used in `Kubernetes` setup
-
+A Spark dockerfile that can be used in `Visual Studio Code Remote - Containers`. Includes pandas, pylint and pyarrow.
 Serves mostly as learning project.
 
 ## Usage
@@ -32,7 +29,6 @@ docker run kubistmi/pyspark:latest
 # download
 git clone git@github.com:kubistmi/docker_spark.git
 
-# navigate and build
-cd docker_spark/executor
+# build
 docker build -t user/image:version
 ```

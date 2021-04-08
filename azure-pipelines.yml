@@ -1,8 +1,7 @@
 # Dockerfiles pipeline
 variables:
   dockerId: kubistmi
-  executorName: pyspark
-  driverName: pyspark_driver
+  imageName: pyspark
 
 trigger:
 - master
@@ -12,19 +11,10 @@ pool:
 
 steps:
 
-- script: cd executor && docker build -t $(dockerId)/$(executorName):latest .
+- script: docker build -t $(dockerId)/$(imageName):latest .
   displayName: 'Building the executor image'
 
 - script: |
     docker login -u $(dockerId) -p $(pswd)
-    docker push $(dockerId)/$(executorName):latest
+    docker push $(dockerId)/$(imageName):latest
   displayName: 'Publishing executor image to DockerHub' 
-
-
-- script: cd driver && docker build -t $(dockerId)/$(driverName):latest .
-  displayName: 'Building the driver image'
-
-- script: |
-    docker login -u $(dockerId) -p $(pswd)
-    docker push $(dockerId)/$(driverName):latest
-  displayName: 'Publishing driver image to DockerHub' 
